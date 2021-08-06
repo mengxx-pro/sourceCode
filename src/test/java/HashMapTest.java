@@ -8,7 +8,12 @@ import java.util.HashMap;
 public class HashMapTest {
 
   public static void main(String[] args) {
-    HashMap hashMap =new HashMap();
-    System.out.println("1".hashCode());
+    System.out.println(1<<30);
+
+    HashMap<Integer,Integer> hashMap =new HashMap<Integer,Integer>();
+    hashMap.put(1, 1);
+    Integer result =  hashMap.put(1, 2);
+    hashMap.get(1);
+    System.out.println("100".hashCode());
   }
 }
