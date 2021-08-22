@@ -11,9 +11,12 @@ public class HashMapTest {
     System.out.println(1<<30);
 
     HashMap<Integer,Integer> hashMap =new HashMap<Integer,Integer>(17);
-    hashMap.put(1, 1);
-    Integer result =  hashMap.put(1, 2);
+    hashMap.put(null, null);
+    Integer result =  hashMap.put(null, 3);
     hashMap.get(1);
+    hashMap.remove(1);
     System.out.println("100".hashCode());
   }
 }
+
+

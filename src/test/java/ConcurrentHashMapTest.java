@@ -1,7 +1,9 @@
 import org.junit.Test;
 import sun.security.provider.Sun;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -13,19 +15,24 @@ public class ConcurrentHashMapTest {
 
    private Integer i = 0;
 
-  static sun.misc.Unsafe UNSAFE = null;
+/*  static sun.misc.Unsafe UNSAFE = null;
 
   static {
     UNSAFE = sun.misc.Unsafe.getUnsafe();
-  }
+  }*/
 
 
   public static void main(String[] args) {
+
     Hashtable hashtable = new Hashtable();
     hashtable.put("", "");
-
-    ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-    concurrentHashMap.put("", "");
+    System.out.println("=====");
+    ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap(9);
+    for(int i = 0;i<=10000;i++){
+      concurrentHashMap.put(i,i);
+      concurrentHashMap.remove(1);
+      System.out.println("++++");
+    }
   }
 
 
