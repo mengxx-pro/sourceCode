@@ -1,9 +1,8 @@
 import org.junit.Test;
-import sun.security.provider.Sun;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Hashtable;
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -25,14 +24,26 @@ public class ConcurrentHashMapTest {
   public static void main(String[] args) {
 
     Hashtable hashtable = new Hashtable();
-    hashtable.put("", "");
+    hashtable.put(null, null);
     System.out.println("=====");
     ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap(9);
     for(int i = 0;i<=10000;i++){
       concurrentHashMap.put(i,i);
       concurrentHashMap.remove(1);
+      concurrentHashMap.get(1);
       System.out.println("++++");
     }
+    int a[][] =new int[][]{};
+    Arrays.sort(a, new Comparator<int[]>() {
+      @Override
+      public int compare(int[] o1, int[] o2) {
+        if(o1[0]==o2[0]){
+          return o1[1]-o2[1];
+        }
+        return o1[0]-o2[0];
+      }
+    });
+    Arrays.fill(a,1);
   }
 
 
@@ -71,4 +82,5 @@ public class ConcurrentHashMapTest {
     }).start();
 
   }
+
 }
