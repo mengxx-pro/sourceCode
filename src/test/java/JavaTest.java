@@ -1,6 +1,8 @@
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
+
 /**
  * @author: mengxiangxing
  * @description: 基本java知识测试代码
@@ -31,5 +33,14 @@ public class JavaTest {
     //Integer i2 = new Integer(40);
     Integer i2 = 130;
     System.out.println(i1 == i2);
+  }
+
+  @Test
+  public void numberTest(){
+    //BigDecimal精度问题
+    BigDecimal bigDecimal = new BigDecimal(0.1);//丢失
+    BigDecimal bigDecimal2 = new BigDecimal("0.1");//正常
+    BigDecimal bigDecimal3 = BigDecimal.valueOf(0.1);//正常
+    System.out.println();
   }
 }
