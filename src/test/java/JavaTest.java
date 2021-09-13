@@ -14,9 +14,9 @@ public class JavaTest {
   @Test
   public void StringTest() {
     StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append("");
+    stringBuilder.append("");//不安全，快
     StringBuffer stringBuffer = new StringBuffer();
-    stringBuffer.append("");
+    stringBuffer.append("");//安全，慢
     String.valueOf("");
   }
 
