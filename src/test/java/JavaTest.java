@@ -3,6 +3,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -59,5 +61,16 @@ public class JavaTest {
     ConcurrentHashMap concurrentHashMap =new ConcurrentHashMap();
     System.out.println("==集合是否为空+"+concurrentHashMap.isEmpty());
     System.out.println(concurrentHashMap.size()==0);
+
+    List transList = Arrays.asList(1,2,3);
+    /**
+     * 运行时报错：UnsupportedOperationException
+     * Arrays.asList() 方法返回的并不是 java.util.ArrayList ，而是 java.util.Arrays 的一个内部类,
+     * 这个内部类并没有实现集合的修改方法或者说并没有重写这些方法。
+     * AbstractList类中直接throw new UnsupportedOperationException();
+     */
+    System.out.println(transList.getClass());
+    transList.add(4);
+
   }
 }
