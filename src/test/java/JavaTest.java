@@ -2,6 +2,8 @@ import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author: mengxiangxing
@@ -42,5 +44,20 @@ public class JavaTest {
     BigDecimal bigDecimal2 = new BigDecimal("0.1");//正常
     BigDecimal bigDecimal3 = BigDecimal.valueOf(0.1);//正常
     System.out.println();
+  }
+
+  @Test
+  public void collectionTest(){
+    /**
+     * 判断所有集合内部的元素是否为空，使用 isEmpty() 方法，而不是 size()==0 的方式。
+     *
+     * 这是因为 isEmpty() 方法的可读性更好，并且时间复杂度为 O(1)。
+     *
+     * 绝大部分我们使用的集合的 size() 方法的时间复杂度也是 O(1)，不过，
+     * 也有很多复杂度不是 O(1) 的，比如 java.util.concurrent 包下的某些集合（ConcurrentLinkedQueue 、ConcurrentHashMap...）
+     */
+    ConcurrentHashMap concurrentHashMap =new ConcurrentHashMap();
+    System.out.println("==集合是否为空+"+concurrentHashMap.isEmpty());
+    System.out.println(concurrentHashMap.size()==0);
   }
 }
