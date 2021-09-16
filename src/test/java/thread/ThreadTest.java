@@ -1,6 +1,14 @@
+package thread;
+
+import com.sun.corba.se.spi.orbutil.threadpool.WorkQueue;
+
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author: mengxiangxing
@@ -12,7 +20,31 @@ public class ThreadTest {
   private static Object resource1 = new Object();
   private static Object resource2 = new Object();
 
+  private final static int corePoolSize=5;
+  private final static int maximumPoolSize=15;
+  private final static int capacity=100;
+  private final static long keepAliveTime=5000;
+  private final static TimeUnit unit=TimeUnit.SECONDS;
+
   public static void main(String[] args) {
+    ThreadPoolExecutor threadPoolExecutor =new ThreadPoolExecutor(corePoolSize,
+        maximumPoolSize,
+        keepAliveTime,
+        unit,
+        new ArrayBlockingQueue<>(capacity));
+
+    for(int i=0;i<10;i++){
+      Runable runable =new Runable(""+i);
+      threadPoolExecutor.execute(runable);
+    }
+
+    threadPoolExecutor.shutdown();
+
+    while (!threadPoolExecutor.isTerminated()) {
+    }
+    System.out.println("Finished all threads");
+
+
     //查看main线程里运行多少线程
     // 获取 Java 线程管理 MXBean
     ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
