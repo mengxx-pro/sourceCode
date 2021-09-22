@@ -35,7 +35,6 @@ public class Lock {
       }
     }).start();
 
-
     new Thread(new Runnable() {
       @Override
       public void run() {
@@ -52,7 +51,6 @@ public class Lock {
         }
       }
     }).start();
-
 
   }
 }
