@@ -73,6 +73,7 @@ public class Lock {
                     //每个线程让count自增100次
                     for (int i = 0; i < 100; i++) {
                         count.incrementAndGet();
+                        // count.compareAndSet(0,2);
                     }
                 }
             }).start();
