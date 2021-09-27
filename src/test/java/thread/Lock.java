@@ -59,6 +59,7 @@ public class Lock {
 
     }
 
+    //CAS比较并替换
     @Test
     public void casTest() {
         for (int i = 0; i < 2; i++) {
