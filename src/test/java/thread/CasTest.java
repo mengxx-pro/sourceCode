@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author: mengxiangxing
- * @Description: TODO
+ * @Description: CAS的测试类
  * @Date: 2021/9/28 17:17
  */
 @SpringBootTest
