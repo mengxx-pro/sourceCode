@@ -71,6 +71,7 @@ public class CasTest implements Runnable{
                     }
                 }
             }).start();
+
         }
 
         try {
@@ -79,5 +80,7 @@ public class CasTest implements Runnable{
             e.printStackTrace();
         }
         System.out.println(count);
+        
+
     }
 }
