@@ -9,7 +9,7 @@ public class Java8 {
 
     private static List<StudentScore> studentScoreList = new ArrayList<>();
 
-    public  Java8() {
+    public Java8() {
 
         StudentScore studentScore1 = new StudentScore() {{
             setStuName("张三");
@@ -92,8 +92,6 @@ public class Java8 {
                 studentScore.getStuName(),
                 studentScore.getScore(),
                 Integer::sum));
-
-
 
         System.out.println(studentScoreMap2);
     }
