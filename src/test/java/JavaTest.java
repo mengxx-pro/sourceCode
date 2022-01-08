@@ -2,6 +2,7 @@ import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -71,5 +72,19 @@ public class JavaTest {
     System.out.println(transList.getClass());
     transList.add(4);
 
+  }
+
+  @Test
+  public void addSubTest(){
+    //++a 和 a++的区别在于，++a是先自增后赋值
+    //a++是先赋值再自增，符号在前就先加减，符号在后就后加减”
+    int a=0;
+    //int b =a++;
+    int b =++a;
+    System.out.println(b);
+    String c="121";
+    c.equals("12121111");
+    long jk=3999778787878721L;
+    long jk1=311111111111111233L;
   }
 }

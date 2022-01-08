@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.util.*;
 
 /**
@@ -94,6 +96,25 @@ public class Java8 {
                 Integer::sum));
 
         System.out.println(studentScoreMap2);
+    }
+
+    @Test
+    public void orElseTest(){
+        //orElse有就用自身值，没有就用orElse后边的
+        System.out.println(Optional.ofNullable(null).orElse("扯淡"));
+        //orElseGet 可以传入一个Supplier接口，实现花样的逻辑
+        System.out.println(Optional.ofNullable(null).orElseGet(()->"自行车"));
+
+        try {
+            System.out.println(Optional.ofNullable("有钱").orElseThrow(()->new Exception()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            System.out.println(Optional.ofNullable(null).orElseThrow(()->new Exception("没钱异常了")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
