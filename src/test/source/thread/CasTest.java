@@ -1,4 +1,4 @@
-package thread;
+package source.thread;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
