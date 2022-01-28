@@ -79,8 +79,8 @@ public class JavaTest {
     //++a 和 a++的区别在于，++a是先自增后赋值
     //a++是先赋值再自增，符号在前就先加减，符号在后就后加减”
     int a=0;
-    //int b =a++;
-    int b =++a;
+    int b =a++;
+    //int b =++a;
     System.out.println(b);
     String c="121";
     c.equals("12121111");
