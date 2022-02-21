@@ -1,6 +1,8 @@
-import org.junit.Test;
-
 package source;
+
+import org.junit.Test;
+import source.StudentScore;
+
 
 import java.util.*;
 
@@ -72,7 +74,7 @@ public class Java8 {
         studentScoreList.add(studentScore9);
     }
 
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         //1排序
         List<String> name = Arrays.asList("tom", "bob", "six", "exe");
         //常规排序
@@ -100,47 +102,5 @@ public class Java8 {
         System.out.println(studentScoreMap2);
     }
 
-    @Test
-    public void orElseTest(){
-
-        //orElse有就用自身值，没有就用orElse后边的
-        System.out.println(Optional.ofNullable(null).orElse("扯淡"));
-        //orElseGet 可以传入一个Supplier接口，实现花样的逻辑
-        System.out.println(Optional.ofNullable(null).orElseGet(()->"自行车"));
-
-        try {
-            System.out.println(Optional.ofNullable("有钱").orElseThrow(()->new Exception()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            System.out.println(Optional.ofNullable(null).orElseThrow(()->new Exception("没钱异常了")));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        int i=1;
-        int j= Optional.ofNullable(i).orElse(i=6);
-        System.out.println(j);
-        System.out.println(i);
-    }
-
-    public static void main(String[] zezeze) {
-       /* args = new String[]{"a","b","c"};
-        argsVoid(args);
-        argsVoid("d","e","f");//传3个参数
-        argsVoid("b");//传1个参数*/
-
-        int[] args = new int[]{1,2,3};
-        argsVoid(args);
-        argsVoid(4,5,6);//传3个参数
-        argsVoid(7);//传1个参数
-    }
-
-    //String...可变参数
-    public static void argsVoid(int... args) {
-        Arrays.stream(args).forEach(arg->{
-            System.out.println(arg);
-        });
-    }
 
 }
