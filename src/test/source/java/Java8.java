@@ -1,7 +1,4 @@
-package source;
-
-import org.junit.Test;
-import source.StudentScore;
+package source.java;
 
 
 import java.util.*;

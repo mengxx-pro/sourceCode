@@ -1,4 +1,4 @@
-package source;
+package source.java;
 
 /**
  * @Author: mengxiangxing

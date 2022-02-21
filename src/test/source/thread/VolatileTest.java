@@ -1,4 +1,4 @@
-package source;
+package source.thread;
 
 import org.junit.Test;
 

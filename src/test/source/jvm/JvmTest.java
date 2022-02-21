@@ -1,4 +1,4 @@
-package source;
+package source.jvm;
 
 import org.junit.Test;
 
