@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -49,6 +50,13 @@ public class JavaTest {
         //Integer i2 = new Integer(40);
         Integer i2 = 130;
         System.out.println(i1 == i2);
+
+        //当Integer的值为-128~127之间的值的时候，Integer直接把这些值放进常量池里面，这个时候，用 == 是可以比较的。
+        //但是当赋给Integer值超过这个范围的时候，Integer就会创建对象，值就不放在常量池里面了，这个时候再用 == 就不可以比较了，因为存放的位置都不一样了，数一样还是会返回false
+        //所以Integer的话强烈建议用 equals() 这个方法！
+        Integer jzBindBankcardStatus = 122;
+        Integer jzBindBankcardStatusCopy = 122;;
+        System.out.println(jzBindBankcardStatus==jzBindBankcardStatusCopy);
     }
 
     @Test
