@@ -1,5 +1,6 @@
 package source.java;
 
+import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -22,6 +23,15 @@ public class JavaTest {
 
     @Test
     public void StringTest() {
+        List<Integer> list =new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(2,0);
+        System.out.println(list.toString());
+
+        NumberUtil.isLess(null, new BigDecimal(50));
+
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("");//不安全，快
         StringBuffer stringBuffer = new StringBuffer();

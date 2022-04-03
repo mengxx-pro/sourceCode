@@ -1,6 +1,10 @@
 package source.exception;
 
+import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author: mengxiangxing
@@ -16,6 +20,16 @@ public class ExceptionTest implements AutoCloseable {
         } finally {
             a = 3;
             System.out.println("returnInt里的值是" + a);
+        }
+    }
+
+    @Test
+    public void ExceptionTest(){
+        Integer i = null;
+        try {
+            if(i==1);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
