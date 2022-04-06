@@ -1,5 +1,6 @@
 package source.java;
 
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,10 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -23,11 +21,11 @@ public class JavaTest {
 
     @Test
     public void StringTest() {
-        List<Integer> list =new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
         list.add(3);
-        list.add(2,0);
+        list.add(2, 0);
         System.out.println(list.toString());
 
         NumberUtil.isLess(null, new BigDecimal(50));
@@ -65,8 +63,9 @@ public class JavaTest {
         //但是当赋给Integer值超过这个范围的时候，Integer就会创建对象，值就不放在常量池里面了，这个时候再用 == 就不可以比较了，因为存放的位置都不一样了，数一样还是会返回false
         //所以Integer的话强烈建议用 equals() 这个方法！
         Integer jzBindBankcardStatus = 122;
-        Integer jzBindBankcardStatusCopy = 122;;
-        System.out.println(jzBindBankcardStatus==jzBindBankcardStatusCopy);
+        Integer jzBindBankcardStatusCopy = 122;
+        ;
+        System.out.println(jzBindBankcardStatus == jzBindBankcardStatusCopy);
     }
 
     @Test
@@ -122,7 +121,7 @@ public class JavaTest {
      * 泛型测试类
      * 常用的通配符为：
      * T，E，K，V，？
-     *  ？ 表示不确定的 Java 类型 T (type) 表示具体的一个 Java 类型   K V (key value) 分别代表 Java 键值中的 Key Value   E (element) 代表 Element
+     * ？ 表示不确定的 Java 类型 T (type) 表示具体的一个 Java 类型   K V (key value) 分别代表 Java 键值中的 Key Value   E (element) 代表 Element
      */
     @Test
     public void genericsTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -138,5 +137,17 @@ public class JavaTest {
         add.invoke(list, "kl");
         System.out.println(list);
 
+    }
+
+    @Test
+    public void uuidTest() {
+        int uuidVersion = UUID.randomUUID().version();
+        String uuid = UUID.randomUUID().toString();
+        String simpleUUID = IdUtil.simpleUUID();
+        String randomUUID = IdUtil.randomUUID();
+        String fastUUID = IdUtil.fastUUID();
+        String fastSimpleUUID = IdUtil.fastSimpleUUID();
+        String nextIdStr = IdUtil.createSnowflake(10,10).nextIdStr();
+        long nextId = IdUtil.createSnowflake(10,10).nextId();
     }
 }
