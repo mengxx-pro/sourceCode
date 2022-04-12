@@ -2,6 +2,7 @@ package source.javaCollection;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author: mengxiangxing
@@ -12,6 +13,13 @@ import java.util.LinkedList;
 public class ListTest {
 
   public static void main(String[] args) {
+    List<Integer> list = new ArrayList<>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(2, 0);
+    System.out.println(list.toString());
+
     ArrayList arrayList =new ArrayList();
     arrayList.add(1);
     arrayList.add(1,2);

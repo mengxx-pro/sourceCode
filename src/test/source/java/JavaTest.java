@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author: mengxiangxing
@@ -21,20 +22,16 @@ public class JavaTest {
 
     @Test
     public void StringTest() {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(2, 0);
-        System.out.println(list.toString());
 
-        NumberUtil.isLess(null, new BigDecimal(50));
+        //NumberUtil.isLess(null, new BigDecimal(50));
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("");//不安全，快
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("");//安全，慢
-        String.valueOf("");
+        Object object = null;
+        String of = String.valueOf(object);
+        of = object.toString();
 
         String a = "ab";//放在常量池中
         String b = "ab";// 从常量池中查找
@@ -147,7 +144,18 @@ public class JavaTest {
         String randomUUID = IdUtil.randomUUID();
         String fastUUID = IdUtil.fastUUID();
         String fastSimpleUUID = IdUtil.fastSimpleUUID();
-        String nextIdStr = IdUtil.createSnowflake(10,10).nextIdStr();
-        long nextId = IdUtil.createSnowflake(10,10).nextId();
+        String nextIdStr = IdUtil.createSnowflake(10, 10).nextIdStr();
+        long nextId = IdUtil.createSnowflake(10, 10).nextId();
+    }
+
+    @Test
+    public void randomTest(){
+        Random random =new Random();
+        int a =random.nextInt();
+        int b =random.nextInt(6);//i 必须大于0 ，否则抛出bound must be positive异常
+        System.out.println("获取的随机数a:"+a);
+        System.out.println("获取的随机数b:"+b);
+        int c =ThreadLocalRandom.current().nextInt(6);
+        System.out.println("ThreadLocalRandom获取的随机数c:"+c);
     }
 }
