@@ -149,13 +149,30 @@ public class JavaTest {
     }
 
     @Test
-    public void randomTest(){
-        Random random =new Random();
-        int a =random.nextInt();
-        int b =random.nextInt(6);//i 必须大于0 ，否则抛出bound must be positive异常
-        System.out.println("获取的随机数a:"+a);
-        System.out.println("获取的随机数b:"+b);
-        int c =ThreadLocalRandom.current().nextInt(6);
-        System.out.println("ThreadLocalRandom获取的随机数c:"+c);
+    public void randomTest() {
+        Random random = new Random();
+        int a = random.nextInt();
+        int b = random.nextInt(6);//i 必须大于0 ，否则抛出bound must be positive异常
+        System.out.println("获取的随机数a:" + a);
+        System.out.println("获取的随机数b:" + b);
+        int c = ThreadLocalRandom.current().nextInt(6);
+        System.out.println("ThreadLocalRandom获取的随机数c:" + c);
+    }
+
+    @Test
+    public void ifSwtichTest() {
+        //当switch括号内的变量类型为String并且此变量为外部参数时，必须先进行null判断。
+        //否则会空指针
+        String param = null;
+
+        switch (param) {
+            case "null":
+                System.out.println("进入null判断");
+                break;
+            default:
+                System.out.println("default");
+                break;
+        }
+
     }
 }
