@@ -1,7 +1,6 @@
 package source.java;
 
 import cn.hutool.core.util.IdUtil;
-import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -159,8 +158,11 @@ public class JavaTest {
         System.out.println("ThreadLocalRandom获取的随机数c:" + c);
     }
 
+    /**
+     * 判断等的测试方法
+     */
     @Test
-    public void ifSwtichTest() {
+    public void ifSwitchTest() {
         //当switch括号内的变量类型为String并且此变量为外部参数时，必须先进行null判断。
         //否则会空指针
         String param = null;
