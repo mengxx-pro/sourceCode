@@ -2,10 +2,6 @@ package source.exception;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * @author: mengxiangxing
  * @description: 异常测试
