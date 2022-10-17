@@ -156,6 +156,14 @@ public class JavaTest {
         System.out.println("获取的随机数b:" + b);
         int c = ThreadLocalRandom.current().nextInt(6);
         System.out.println("ThreadLocalRandom获取的随机数c:" + c);
+
+        /*
+        注意 Math.random() 这个方法返回是 double 类型，注意取值的范围 0≤x<1（能够
+        取到零值，注意除零异常），如果想获取整数类型的随机数，不要将 x 放大 10 的若干倍然后
+        取整，直接使用 Random 对象的 nextInt 或者 nextLong 方法。
+         */
+        double ranDouble = Math.random();
+        System.out.println("Math.random():" + ranDouble);
     }
 
     /**
@@ -177,4 +185,11 @@ public class JavaTest {
         }
 
     }
+
+    @Test
+    public void finalTest(){
+      final String a="final";
+      //a="newFianl";
+    }
+
 }
