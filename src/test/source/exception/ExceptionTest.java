@@ -34,12 +34,12 @@ public class ExceptionTest implements AutoCloseable {
         String a = "123552232";
         int x = a.charAt(0) - '0';
         System.out.println(x);
+
         /*当try和finally中也有return时，会最后执行finally里的并覆盖try中的返回值
          *finally 块： 无论是否捕获或处理异常，finally 块里的语句都会被执行。
          *  当在 try 块或 catch 块中遇到 return 语句时，finally 语句块将在方法返回之前被执行。
          */
-
-        //System.out.println(ExceptionTest.returnInt());
+        System.out.println(ExceptionTest.returnInt());
 
 
         /**
