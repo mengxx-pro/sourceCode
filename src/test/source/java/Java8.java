@@ -87,6 +87,7 @@ public class Java8 {
             return a.compareTo(b);
         });*/
         Collections.sort(name, (a, b) -> a.compareTo(b));
+        Collections.sort(name);
         System.out.println(name);
 
         new Java8();
