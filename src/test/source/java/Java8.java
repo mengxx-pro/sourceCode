@@ -89,6 +89,7 @@ public class Java8 {
         Collections.sort(name, (a, b) -> a.compareTo(b));
         Collections.sort(name);
         System.out.println(name);
+        System.out.println("3435");
 
         new Java8();
         Map<String, Integer> studentScoreMap2 = new HashMap<>();
