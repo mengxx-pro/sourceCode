@@ -95,6 +95,7 @@ public class JavaTest {
          * AbstractList类中直接throw new UnsupportedOperationException();
          */
         System.out.println(transList.getClass());
+        System.out.println(concurrentHashMap.getClass());
         transList.add(4);
 
     }
