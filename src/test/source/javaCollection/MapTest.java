@@ -28,6 +28,9 @@ public class MapTest {
         List<String> aList = map.keySet().stream().collect(Collectors.toList());
         List<String> bList = map.values().stream().collect(Collectors.toList());
 
+        //map.forEach( p -> System.out.println(p));
+
+
         //循环keySet
         for (String key : map.keySet()) {
             System.out.println(key);

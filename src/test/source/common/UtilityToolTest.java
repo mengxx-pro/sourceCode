@@ -1,4 +1,4 @@
-package source;
+package source.common;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.BiMap;
