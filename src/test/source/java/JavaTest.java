@@ -4,6 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -19,8 +20,16 @@ import java.util.concurrent.ThreadLocalRandom;
 @SpringBootTest
 public class JavaTest {
 
+    @Resource
+    private JavaTest javaTest;
+
+
+    private void noTest(){
+        System.out.println("执行了noTest()");
+    }
     @Test
     public void StringTest() {
+        javaTest.noTest();
 
         //NumberUtil.isLess(null, new BigDecimal(50));
 
@@ -30,9 +39,9 @@ public class JavaTest {
         stringBuffer.append("");//安全，慢
         Object object = null;
         String of = String.valueOf(object);
-        of = object.toString();
+        //of = object.toString();
 
-        String a = "ab";//放在常量池中
+        String a = "ab";// 放在常量池中
         String b = "ab";// 从常量池中查找
         System.out.println(a == b);// true
 
@@ -188,9 +197,19 @@ public class JavaTest {
     }
 
     @Test
-    public void finalTest(){
-      final String a="final";
-      //a="newFianl";
+    public void finalTest() {
+        int mid = (0 + 3) >> 1;
+
+        final String a = "final";
+        //a="newFianl";
+    }
+
+    @Test
+    public void intTest() {
+        Integer a = 200;
+        Integer b = Integer.valueOf(200);
+        System.out.println("a == b?:"+ (a == b));
+        System.out.println("a.equals(b)?:"+a.equals(b));
     }
 
 }

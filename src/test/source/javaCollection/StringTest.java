@@ -10,7 +10,7 @@ public class StringTest {
         String a = "a";
         String b = "b";
         //int b = 1;
-        a.equals(b);
+        a.equals(b.intern());
         System.out.println(a.hashCode());
         System.out.println(b.hashCode());
         Integer c =new Integer(1);

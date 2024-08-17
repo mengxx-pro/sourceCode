@@ -69,6 +69,20 @@ public class ExceptionTest implements AutoCloseable {
     }
 
     public static void doIt() throws Exception {
+
+
         System.out.println("doIt.....");
+    }
+
+
+
+    public int takeAttendance(int[] records) {
+        int left = 0,right = records.length-1;
+        while(left < right){
+            int mid = (left + right) >> 1;
+            if(records[mid] == mid)left = mid + 1;
+            else right = mid;
+        }
+        return records[left] == left ? left+1 : left;
     }
 }
