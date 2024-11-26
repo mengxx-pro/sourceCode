@@ -18,6 +18,7 @@ public class HashMapTest {
     hashMap.get(1);
     hashMap.remove(1);
     System.out.println("100".hashCode());
+    hashMap.getOrDefault(10,0);
   }
 }
 

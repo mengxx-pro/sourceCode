@@ -35,5 +35,20 @@ public class Singleton {
         return singleton;
     }*/
 
-
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 3, 1, 2};
+        int key = 3;
+        int sum = 0;
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum = 0;
+            for (int j = i ; j < arr.length; j++) {
+                sum = sum + arr[j];
+                if (sum == key) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+    }
 }
